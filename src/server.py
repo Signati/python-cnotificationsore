@@ -10,7 +10,7 @@ from src.cfdi_receptor import CfdiReceptor
 from src.cfdi_trasladado import CfdiTrasladado
 from src.cfdi_retencion import CfdiRentencion
 from datetime import datetime
-from src.openssl import Openssl
+# from src.openssl import Openssl
 from pathlib import Path
 import xmltodict
 
@@ -81,15 +81,15 @@ def main():
     impues.set_total_impuestos_trasladados('12512')
     impues.set_total_tmpuestos_retenidos('2151251')
     comprobante.impuesto(impues.get_impuesto())
-    openssl = Openssl()
-    no_cert = openssl.get_no_cert(cer)
+    #openssl = Openssl()
+    #no_cert = openssl.get_no_cert(cer)
     xml = xmltodict.unparse(dictComprobante)
     cadena = pkg_resources.resource_filename(
         __name__, 'resources/cadenaoriginal_3_3.xslt')
-    sello = openssl.get_sello(key, pwd, xml, cadena)
-    comprobante.set_no_certificado(no_cert)
-    comprobante.set_sello(str(sello).replace("b'", ""))
-    comprobante.set_certificado(str(cer).replace("b'", ""))
+   # sello = openssl.get_sello(key, pwd, xml, cadena)
+    #comprobante.set_no_certificado(no_cert)
+    #comprobante.set_sello(str(sello).replace("b'", ""))
+    #comprobante.set_certificado(str(cer).replace("b'", ""))
     xml = xmltodict.unparse(dictComprobante)
     return Response(xml, mimetype='text/xml')
 
