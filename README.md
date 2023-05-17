@@ -26,6 +26,7 @@ coming soon
 to contribute and create more modules run
 
 ```bash
+ sudo     apt-get install python3-venv
  python3 -m venv env
  source env/bin/activate
  python -m pip install -r requirements.txt
